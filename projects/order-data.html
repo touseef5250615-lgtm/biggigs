@@ -12,24 +12,17 @@
         .project-header { text-align: center; margin-bottom: 30px; }
         .project-header h1 { font-size: 2.5rem; color: #333; margin-bottom: 15px; }
         .project-header .meta { color: #666; font-size: 1rem; }
-        .project-image-large { position: relative; background: #f0f4f8; }
-        .image-overlay { position: absolute; top: 15px; right: 15px; display: flex; gap: 10px; z-index: 10; }
-        .overlay-btn { width: 45px; height: 45px; background: rgba(255, 255, 255, 0.95); border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; color: #667eea; font-size: 1.1rem; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.15); backdrop-filter: blur(10px); }
-        .overlay-btn:hover { background: #667eea; color: white; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4); }
-        .project-actions { display: none; }
-        .action-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s; }
-        .download-btn { background: #667eea; color: white; }
-        .download-btn:hover { background: #5568d3; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3); }
+        .project-image-large { width: 100%; border-radius: 20px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); position: relative; background: #f0f4f8; }
+        .project-image-large img { width: 100%; max-height: 500px; object-fit: contain; display: block; }
+        .image-overlay { position: absolute; top: 20px; right: 20px; display: flex; gap: 12px; z-index: 10; }
+        .overlay-btn { width: 48px; height: 48px; background: rgba(255, 255, 255, 0.95); border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; color: #667eea; font-size: 1.2rem; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); backdrop-filter: blur(10px); }
+        .overlay-btn:hover { background: #667eea; color: white; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5); }
         .menu-container { position: relative; }
-        .menu-btn { background: white; border: 2px solid #e0e0e0; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; color: #666; transition: all 0.3s; }
-        .menu-btn:hover { background: #f8f9fa; border-color: #667eea; color: #667eea; }
-        .dropdown-menu { position: absolute; top: 55px; right: 0; background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); min-width: 180px; padding: 8px; display: none; z-index: 100; }
+        .dropdown-menu { position: absolute; top: 60px; right: 0; background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); min-width: 180px; padding: 8px; display: none; z-index: 100; }
         .dropdown-menu.show { display: block; }
         .dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 12px 15px; text-decoration: none; color: #333; border-radius: 8px; font-size: 0.95rem; transition: background 0.2s; }
         .dropdown-menu a:hover { background: #f0f4ff; }
         .dropdown-menu a.delete-option:hover { background: #ffe8e8; color: #e74c3c; }
-        .project-image-large { width: 100%; border-radius: 20px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
-        .project-image-large img { width: 100%; display: block; }
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 50px; }
         .stat-card { background: white; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.08); }
         .stat-card h3 { font-size: 2rem; color: #667eea; margin-bottom: 5px; }
@@ -63,15 +56,19 @@
                 <i class="fas fa-calendar"></i> Completed: 13 October 2026 |
                 <i class="fas fa-tag"></i> Excel, Power BI, Python
             </p>
-            <div class="project-actions">
-                <a href="../data/order-data-report.pdf" class="action-btn download-btn" download>
-                    <i class="fas fa-download"></i> Download PDF
+        </div>
+
+        <div class="project-image-large">
+            <img src="../images/excel-analysis.webp" alt="Excel Analysis">
+            <div class="image-overlay">
+                <a href="../data/order-data-report.pdf" class="overlay-btn" download title="Download PDF">
+                    <i class="fas fa-download"></i>
                 </a>
-                <a href="../data/order-data-report.xlsx" class="action-btn download-btn" download>
-                    <i class="fas fa-file-excel"></i> Download Excel
+                <a href="../data/order-data-report.xlsx" class="overlay-btn" download title="Download Excel">
+                    <i class="fas fa-file-excel"></i>
                 </a>
                 <div class="menu-container">
-                    <button class="menu-btn" onclick="toggleMenu(event)">
+                    <button class="overlay-btn" onclick="toggleMenu(event)" title="More options">
                         <i class="fas fa-ellipsis-v"></i>
                     </button>
                     <div class="dropdown-menu" id="dropdownMenu">
@@ -81,33 +78,6 @@
                         <a href="#" onclick="deleteProject(event)" class="delete-option">
                             <i class="fas fa-trash"></i> Delete
                         </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-image-large">
-            <img src="../images/excel-analysis.webp" alt="Excel Analysis">
-            <div class="image-overlay">
-                <div class="image-actions">
-                    <a href="../data/order-data-report.pdf" class="overlay-btn" download title="Download PDF">
-                        <i class="fas fa-download"></i>
-                    </a>
-                    <a href="../data/order-data-report.xlsx" class="overlay-btn" download title="Download Excel">
-                        <i class="fas fa-file-excel"></i>
-                    </a>
-                    <div class="menu-container">
-                        <button class="overlay-btn menu-btn-overlay" onclick="toggleMenu(event)" title="More options">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
-                        <div class="dropdown-menu" id="dropdownMenu">
-                            <a href="#" onclick="editProject(event)">
-                                <i class="fas fa-edit"></i> Edit
-                            </a>
-                            <a href="#" onclick="deleteProject(event)" class="delete-option">
-                                <i class="fas fa-trash"></i> Delete
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -167,13 +137,13 @@
 
         function editProject(event) {
             event.preventDefault();
-            alert('Edit mode: Yeh feature sirf aapke liye hai.\nYahan aap project edit kar sakte hain.');
+            alert('Edit mode: Yeh feature sirf aapke liye hai.');
         }
 
         function deleteProject(event) {
             event.preventDefault();
             if (confirm('Kya aap waqai yeh project delete karna chahte hain?')) {
-                alert('Delete confirmed. (Yeh feature abhi demo hai)');
+                alert('Delete confirmed.');
             }
         }
 
@@ -186,7 +156,3 @@
     </script>
 </body>
 </html>
-
-
-
-
