@@ -12,7 +12,11 @@
         .project-header { text-align: center; margin-bottom: 30px; }
         .project-header h1 { font-size: 2.5rem; color: #333; margin-bottom: 15px; }
         .project-header .meta { color: #666; font-size: 1rem; }
-        .project-actions { display: flex; gap: 15px; justify-content: center; align-items: center; margin-top: 25px; flex-wrap: wrap; }
+        .project-image-large { position: relative; background: #f0f4f8; }
+        .image-overlay { position: absolute; top: 15px; right: 15px; display: flex; gap: 10px; z-index: 10; }
+        .overlay-btn { width: 45px; height: 45px; background: rgba(255, 255, 255, 0.95); border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; color: #667eea; font-size: 1.1rem; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.15); backdrop-filter: blur(10px); }
+        .overlay-btn:hover { background: #667eea; color: white; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4); }
+        .project-actions { display: none; }
         .action-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s; }
         .download-btn { background: #667eea; color: white; }
         .download-btn:hover { background: #5568d3; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3); }
@@ -182,5 +186,7 @@
     </script>
 </body>
 </html>
+
+
 
 
