@@ -84,6 +84,29 @@
 
         <div class="project-image-large">
             <img src="../images/excel-analysis.webp" alt="Excel Analysis">
+            <div class="image-overlay">
+                <div class="image-actions">
+                    <a href="../data/order-data-report.pdf" class="overlay-btn" download title="Download PDF">
+                        <i class="fas fa-download"></i>
+                    </a>
+                    <a href="../data/order-data-report.xlsx" class="overlay-btn" download title="Download Excel">
+                        <i class="fas fa-file-excel"></i>
+                    </a>
+                    <div class="menu-container">
+                        <button class="overlay-btn menu-btn-overlay" onclick="toggleMenu(event)" title="More options">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <a href="#" onclick="editProject(event)">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                            <a href="#" onclick="deleteProject(event)" class="delete-option">
+                                <i class="fas fa-trash"></i> Delete
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="stats-grid">
@@ -159,3 +182,4 @@
     </script>
 </body>
 </html>
+
